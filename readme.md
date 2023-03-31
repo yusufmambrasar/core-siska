@@ -74,7 +74,7 @@ $config['charset'] = 'utf8';
 
 ### Cache Dir ###
 
-Set Permission to 755 for Cache Directory;
+Set Permission to 777 for Cache Directory;
 
 ```
 \Caches\
