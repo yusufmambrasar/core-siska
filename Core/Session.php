@@ -9,6 +9,8 @@ class Session
     {
         if(session_status() === PHP_SESSION_NONE) 
         {
+            ini_set('session.save_path',BASE.'/Temp');
+            ini_set('session.gc_probability', 1);
             session_start();
         }
         if(!empty($name))
@@ -50,9 +52,9 @@ class Session
         return $this;
     }
 
-    public function Clear()
+    public function Clear($name)
     {
-        $_SESSION[$this->name] = array();
+        $_SESSION[$name] = array();
         return $this;
     }
 
