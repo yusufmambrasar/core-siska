@@ -165,9 +165,9 @@ if (! function_exists('ParseQuestionFillAnswer'))
 {
     function ParseQuestionFillAnswer($format, $arr) 
     { 
-        $arr = explode("\n",$arr);
+        $arrs = explode("\n",$arr);
         $format = str_replace('[....]','<code>%s</code>',$format);
-        call_user_func_array('printf', array_merge((array)$format, $arr)); 
+        call_user_func_array('printf', array_merge((array)$format, $arrs)); 
     } 
 }
 
