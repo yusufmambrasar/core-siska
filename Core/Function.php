@@ -173,11 +173,24 @@ if (! function_exists('ParseQuestionFillAnswer'))
 
 if (! function_exists('ParseQuestionFillBlank')) 
 {
-    function ParseQuestionFillBlank($format, $arr) 
+    function ParseQuestionFillBlank($format, $arr, $answers) 
     { 
-        $arr = explode("\n",$arr);
+        $answers = explode("\n",$answers);
+        $arrs = explode("\n",$arr);
+        foreach($arrs as $k => $v)
+        {
+            if(isset($answers[$k]))
+            {
+                $answer = $answers[$k];
+            }
+            else
+            {
+                $answer = '';
+            }
+            $arrs[$k] = '<input type="text" class="form-control form-control-inline" placeholder="..." name="answer_fill'.$k.'" value="'.$answer.'" />';
+        }
         $format = str_replace('[....]','%s',$format);
-        call_user_func_array('printf', array_merge((array)$format, $arr)); 
+        call_user_func_array('printf', array_merge((array)$format, $arrs)); 
     } 
 }
 
