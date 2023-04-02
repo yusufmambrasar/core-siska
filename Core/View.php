@@ -10,6 +10,7 @@ class View
     private static $blocks = array();
 
     public function __construct($file, $data = array(),$compress=TRUE) {
+        $starttime = microtime(true);
         $cached_file = self::cache($file);
         extract($data, EXTR_SKIP);
         if($compress)
@@ -21,6 +22,8 @@ class View
         {
             ob_end_flush();
         }
+        $endtime = microtime(true);
+        printf("<!-- Page loaded in %f seconds -->", $endtime - $starttime );
     }
 
     private static function cache($file) {
