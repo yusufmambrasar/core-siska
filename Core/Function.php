@@ -5,14 +5,14 @@ if (! function_exists('Minifier'))
 {
     function Minifier($code) 
     {
-        // $search = array(
-        //     '/\>[^\S ]+/s',
-        //     '/[^\S ]+\</s',
-        //     '/(\s)+/s',
-        //     '/<!--(.|\s)*?-->/'
-        // );
-        // $replace = array('>', '<', '\\1');
-        // $code = preg_replace($search, $replace, $code);
+        $search = array(
+            '/\>[^\S ]+/s',
+            '/[^\S ]+\</s',
+            '/(\s)+/s',
+            '/<!--(.|\s)*?-->/'
+        );
+        $replace = array('>', '<', '\\1');
+        $code = preg_replace($search, $replace, $code);
         return $code;
     }
 }
