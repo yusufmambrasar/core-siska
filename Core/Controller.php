@@ -9,6 +9,16 @@ class Controller
     {
         $this->Load('Core/Database');
         $this->Load('Core/Session');
+        $file = BASE . '/App/Configs/Core.php';
+        if(file_exists($file))
+        {
+            $core = [];
+            include($file);
+            foreach($core as $k => $v)
+            {
+                $this->data['core'][$k] = $v;
+            } 
+        }
         $file = BASE . '/App/Configs/App.php';
         if(file_exists($file))
         {

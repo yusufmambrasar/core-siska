@@ -7,6 +7,7 @@ require(BASE.'/Core/Model.php');
 require(BASE.'/Core/Library.php');
 require(BASE.'/Core/View.php');
 require(BASE.'/Core/Function.php');
+
 class Core 
 {
     public Request $Request;
@@ -153,9 +154,6 @@ class Core
                     $this->Response->Function
                 ))
                 {
-                    header('Cache-Control: no-cache, no-store, must-revalidate');
-                    header('Pragma: no-cache');
-                    header('Expires: 0');
                     $class = $this->Response->Class;
                     $function = $this->Response->Function;
                     $params = $this->Response->Params;
