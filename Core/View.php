@@ -41,7 +41,7 @@ class View
 
     public static function clearCache() {
         foreach(glob(self::$cache_path . '*') as $file) {
-            unlink($file);
+            // unlink($file);
         }
     }
 

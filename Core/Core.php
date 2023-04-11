@@ -143,10 +143,9 @@ class Core
                 $this->Response->Code = 404;
             }
         }
-        // print_r($this->Response);
         if($this->Response->Code == 200)
         {
-            include($this->Response->File);
+            require_once($this->Response->File);
             if(class_exists($this->Response->Class))
             {
                 if(method_exists(
@@ -158,7 +157,7 @@ class Core
                     $function = $this->Response->Function;
                     $params = $this->Response->Params;
                     $this->Instance = new $class();
-                    $this->Instance->$function(...$params);                   
+                    $this->Instance->$function(...$params);               
                 }
                 else
                 {

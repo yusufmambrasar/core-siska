@@ -1,24 +1,16 @@
 <?php
 defined('BASE') or header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
+
 class Controller 
 {   
     public array $data = [];
     public array $config = [];
     private array $_loaded = [];
+
     public function __construct()
     {
         $this->Load('Core/Database');
         $this->Load('Core/Session');
-        $file = BASE . '/App/Configs/Core.php';
-        if(file_exists($file))
-        {
-            $core = [];
-            include($file);
-            foreach($core as $k => $v)
-            {
-                $this->data['core'][$k] = $v;
-            } 
-        }
         $file = BASE . '/App/Configs/App.php';
         if(file_exists($file))
         {
@@ -62,16 +54,4 @@ class Controller
         }
     }
 
-    public function Auth($module)
-    {
-        $access = $this->Database->where('module',$module)->getOne('accesses');
-        $account = unserialize(base64_decode($this->Session->Get('account')));
-        if($access && $account)
-        {
-            if($access['access_id']!==$account['access_id'])
-            {
-                Redirect('Account/index');
-            }
-        }
-    }
 }
