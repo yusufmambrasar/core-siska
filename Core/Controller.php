@@ -5,6 +5,7 @@ class Controller
 {   
     public array $data = [];
     public array $config = [];
+    public object $view;
     private array $_loaded = [];
 
     public function __construct()
@@ -22,6 +23,7 @@ class Controller
                 $this->data['config'][$k] = $v;
             } 
         }
+        $this->view = new View();
     }
 
     public function Load($path='')

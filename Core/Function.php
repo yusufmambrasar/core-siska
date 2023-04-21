@@ -1,22 +1,6 @@
 <?php
 defined('BASE') or header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
 
-if (! function_exists('Minifier')) 
-{
-    function Minifier($code) 
-    {
-        $search = array(
-            '/\>[^\S ]+/s',
-            '/[^\S ]+\</s',
-            '/(\s)+/s',
-            '/<!--(.|\s)*?-->/'
-        );
-        $replace = array('>', '<', '\\1');
-        $code = preg_replace($search, $replace, $code);
-        return $code;
-    }
-}
-
 if (! function_exists('CurrentUrl')) 
 {
     function CurrentUrl($return=FALSE)
