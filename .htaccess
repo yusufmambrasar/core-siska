@@ -1,0 +1,22 @@
+# Remove the question mark from the request but maintain the query string
+Options All -Indexes
+RewriteEngine On
+
+# Uncomment the following line if your public folder isn't the web server's root
+RewriteBase /core/
+RewriteRule (^|/)App(/|$) - [F]
+RewriteRule (^|/)Core(/|$) - [F]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+
+# <IfModule mod_headers.c>
+#   Header set Cache-Control "no-cache, no-store, must-revalidate"
+#   Header set Pragma "no-cache"
+#   Header set Expires 0
+# </IfModule>
+
+# php_value memory_limit 1G
+# php_value post_max_size 1G
+# php_value upload_max_filesize 1G
