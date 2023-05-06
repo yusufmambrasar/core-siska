@@ -1,9 +1,9 @@
 <?php
 defined('BASE') or header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
 
-if (! function_exists('CurrentUrl')) 
+if (! function_exists('currentUrl')) 
 {
-    function CurrentUrl($return=FALSE)
+    function currentUrl($return=FALSE)
     {
         $output = sprintf(
             "%s://%s%s",
@@ -22,9 +22,9 @@ if (! function_exists('CurrentUrl'))
     }
 }
 
-if (! function_exists('SiteUrl')) 
+if (! function_exists('siteUrl')) 
 {
-    function SiteUrl($Uri='', $return=FALSE)
+    function siteUrl($Uri='', $return=FALSE)
     {
         $Path = str_replace($_SERVER['QUERY_STRING'],'',$_SERVER['REQUEST_URI']);
         $output = sprintf(
@@ -45,9 +45,9 @@ if (! function_exists('SiteUrl'))
     }
 }
 
-if (! function_exists('BaseUrl')) 
+if (! function_exists('baseUrl')) 
 {
-    function BaseUrl($Uri = '', $return=FALSE)
+    function baseUrl($Uri = '', $return=FALSE)
     {
         $output = BASE . '/' . $Uri;
         if($return)
@@ -84,9 +84,9 @@ if (! function_exists('isActiveUrl'))
 }
 
 
-if (! function_exists('Redirect')) 
+if (! function_exists('redirect')) 
 {
-    function Redirect($uri='')
+    function redirect($uri='')
     {
         $url = SiteUrl($uri,TRUE);
         header('location: ' . $url);
@@ -94,9 +94,9 @@ if (! function_exists('Redirect'))
     }
 }
 
-if (! function_exists('RandomString')) 
+if (! function_exists('randomString')) 
 {
-    function RandomString($len=6,$type='Alphanumeric') {
+    function randomString($len=6,$type='Alphanumeric') {
         if($type=='alpha')
         {
             $characters = 'abcdefghijklmnopqrstuvwxyz';

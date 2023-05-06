@@ -3,7 +3,7 @@ Options All -Indexes
 RewriteEngine On
 
 # Uncomment the following line if your public folder isn't the web server's root
-RewriteBase /siska/
+RewriteBase /siska/api/
 RewriteRule (^|/)App(/|$) - [F]
 RewriteRule (^|/)Core(/|$) - [F]
 RewriteCond %{REQUEST_FILENAME} !-f
